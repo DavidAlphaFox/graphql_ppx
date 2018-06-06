@@ -55,7 +55,7 @@ and selection =
   | FragmentSpread of fragment_spread spanning
   | InlineFragment of inlineFragment spanning
 
-type operationType = Query | Mutation
+type operationType = Query | Mutation | Subscription
 
 type operation = {
   o_type: operationType;

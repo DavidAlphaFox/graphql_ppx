@@ -2,7 +2,7 @@ let typename_field = {
   Schema.fm_name = "__typename";
   fm_description = None;
   fm_arguments = [];
-  fm_field_type = NonNull (Named "String");
+  fm_field_type = Schema.NonNull (Schema.Named "String");
   fm_deprecation_reason = None
 }
 

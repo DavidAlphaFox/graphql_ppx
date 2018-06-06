@@ -158,4 +158,10 @@ let unify_document_schema error_marker map_loc schema document =
       | None ->
         make_error error_marker map_loc span "This schema does not contain any mutations"
     end
+  | [Operation { item = { o_type = Subscription; o_selection_set }; span } ] -> begin match subscription_type schema with
+      | Some subscription_type ->
+        unify_selection_set error_marker false map_loc span schema subscription_type (Some o_selection_set)
+      | None ->
+        raise_error map_loc span "This schema does not contain any subscriptions"
+    end
   | _ -> raise @@ Unimplemented "unification with other than singular queries"
